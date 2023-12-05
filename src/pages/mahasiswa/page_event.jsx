@@ -1,14 +1,20 @@
 import React from "react";
 import Header from "../../components/global-components/header";
-import Card from "../../components/global-components/tentang_kami";
+import Media_Kampus from "../../components/global-components/media_kampus";
+import EventMendatang from "../../components/global-components/event_mendatang";
+import InfoKampus from "../../components/global-components/info_kampus";
+import Footer from "../../components/global-components/footer";
 
-function page_event() {
+const page_event = () => {
   return (
     <>
       <Header />
-      <Card />
+      <Media_Kampus />
+      <EventMendatang />
+      <InfoKampus />
+      <Footer />
     </>
   );
-}
+};
 
 export default page_event;
