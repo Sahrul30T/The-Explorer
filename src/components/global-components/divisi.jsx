@@ -10,19 +10,19 @@ import MinatBakat from "../../assets/divisi/minat_bakat.svg";
 
 function divisi() {
   return (
-    <div className="pt-5">
+    <div className="container items-center mx-auto pt-5">
       <div className="flex justify-center items-center">
         <div className="w-[530px] h-[95px] flex-col justify-start items-center inline-flex">
-          <div className="w-[470px] text-center text-blue-900 text-5xl font-extrabold font-['Inter'] leading-10">
-            Divisi HMPS- SI
+          <div className="w-[470px] text-center text-blue-900 text-5xl font-extrabold leading-10">
+            DIVISI HMPS-SI
           </div>
           <div className="w-6 h-6 relative opacity-0">
             <div className="w-6 h-6 left-0 top-0 absolute bg-gray-100 border border-zinc-500" />
-            <div className="left-[4px] top-[7px] absolute text-center text-zinc-500 text-xs font-semibold font-['Inter'] uppercase leading-[18px] tracking-wide">
+            <div className="left-[4px] top-[7px] absolute text-center text-zinc-500 text-xs font-semibold uppercase leading-[18px] tracking-wide">
               24
             </div>
           </div>
-          <div className="w-[498px] text-center text-black text-base font-normal font-['Inter'] leading-normal">
+          <div className="w-[498px] text-center text-black text-base font-normal leading-normal">
             Berikut 8 divisi yang terdapat dalam organisasi himpunan mahasiswa
             sistem informasi, klik untuk info selengkapnya.
           </div>

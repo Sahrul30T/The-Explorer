@@ -1,87 +1,75 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Logo from "../../assets/logo.svg";
 import BgLogin from "../../assets/bg_login.svg";
+import { login, setStorage } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
-function login() {
+
+const Login = () =>  {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async() => {
+    try {
+      const response = await login({username: username, password: password});
+      if(response.data.Data.role_id === 1){
+        await setStorage('profile', response?.data)
+         navigate('/user/Landing_Page')
+        }else{
+        await setStorage('profile', response?.data)
+         navigate('/Admin/Home')
+      }
+    } catch (error) {
+      if(error.response && error.response.status === 400) {
+        console.log(error.response.data.message)
+      }
+    }
+  }
+
+  useEffect(() => {
+    
+  },[])
   return (
-    <div>
-      <div className="relative bg-white ">
-        <div className=" left-0 top-0 absolute">
-          <div className=" left-0 top-0 absolute bg-black bg-opacity-20 shadow" />
-          <div className="left-[705px] top-0 absolute bg-white rounded-[3px]" />
-        </div>
-        <img
-          className="w-52 h-[247px] left-[967px] top-[129px] absolute"
-          src={Logo}
-        />
-        <div className="w-[392px] h-[29px] left-[875px] top-[405px] absolute text-right text-black text-4xl font-bold leading-[73px]">
-          Masuk Sebagai Admin
-        </div>
-        <div className="left-[816px] top-[539px] absolute text-justify text-black text-opacity-90 text-xl font-normal leading-7">
-          Email/akun pengguna
-        </div>
-        <form action="#" method="POST">
-          <div className="w-[900px] h-[590px] left-[815px] top-[556px] absolute">
-            <div>
-              <div className="mt-2.5">
-                <input
-                  type="text"
-                  name="full-name"
-                  id="full-name"
-                  autoComplete="given-name"
-                  className="w-[510px] h-[50px] text-black py-4 bg-none border-b border-black outline-none focus:outline-none "
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="left-[816px] top-[670px] absolute text-justify text-black absolute">
-            <div>
-              <div className="mt-2.5">
-                <input
-                  type="text"
-                  name="full-name"
-                  id="full-name"
-                  autoComplete="given-name"
-                  className="w-[510px] h-[50px] text-black py-4 bg-none border-b border-black outline-none focus:outline-none "
-                />
-              </div>
-            </div>
-          </div>
-        </form>
-
-        <div className="left-[816px] top-[649px] absolute text-justify text-black text-opacity-90 text-xl font-normal leading-7">
-          Kata sandi
-        </div>
-        {/* <div className="left-[816px] top-[590px] absolute text-justify text-gray-400 text-[15px] font-normal font-['Inter'] leading-7">Masukkan email/nama akun yang terdaftar</div> */}
-        {/* <div className="left-[816px] top-[703px] absolute text-justify text-gray-400 text-[15px] font-normal font-['Inter'] leading-7">Masukkan kata sandi</div> */}
-        {/* <div className="w-[509px] h-[0px] left-[816px] top-[620px] absolute border border-slate-200"></div> */}
-        {/* <div className="w-[509px] h-[0px] left-[816px] top-[730px] absolute border border-slate-200"></div> */}
-
-        {/* Hidden PW */}
-        <img
-          className="w-[19px] h-5 left-[1302px] top-[698px] absolute"
-          src="https://via.placeholder.com/19x20"
-        />
-
-        <a
-          href="#"
-          className="px-4 py-2 mr-4 text-white uppercase bg-pink-500 border-2 border-transparent rounded-lg text-md hover:bg-pink-400">
-          <div className="w-[509px] h-[46px] left-[816px] top-[775px] absolute">
-            <div className="w-[509px] h-[46px] left-0 top-0 absolute bg-blue-700 rounded-[5px] border-2 border-slate-200" />
-            <div className="w-[58.15px] h-3.5 left-[225.43px] top-[10px] absolute text-center text-white text-lg font-semibold leading-7">
-              Masuk
-            </div>
-          </div>
-        </a>
-
-        <img
-          className="w-[705px] h-[1021px] left-0 top-[3px] absolute"
-          src={BgLogin}
-        />
-      </div>
+    <div className="container items-center mx-auto bg-white">     
+        {/* <!-- component --> */}
+<div className="bg-white flex justify-center items-center h-screen">
+    {/* <!-- Left: Image --> */}
+<div className="w-full h-screen hidden lg:block">
+  <img src={BgLogin} alt="Placeholder Image" className="object-cover w-full h-full"></img>
+</div>
+{/* <!-- Masuk & Verifikasi --> */}
+<div className="lg:p-20 md:p-52 sm:20 w-full lg:w-2/3">
+  
+<img src={Logo} alt="logo" className="w-2/3 relative items-center mx-auto pr-28 mb-8" />
+  <h1 className="text-2xl container absoulte items-center mx-auto font-semibold mb-4">Masuk Sebagai Admin</h1>
+  <form action="#" method="POST">
+    {/* <!-- Username Input --> */}
+    <div className="mb-4">
+      <label htmlFor="username" className="block text-gray-600">Username</label>
+      <input type="text" id="username" value={username} onInput={text => setUsername(text.target.value)} className="w-full border-b-2 border-black rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autoComplete="off"></input>
     </div>
+    {/* <!-- Password Input --> */}
+    <div className="mb-4">
+      <label htmlFor="password" className="block text-gray-600">Password</label>
+      <input type="password" id="password" value={password} onChange={text => setPassword(text.target.value)} className="w-full border-b-2 border-black rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autoComplete="off"></input>
+    </div>
+    {/* <!-- Login Button --> */}
+    
+    
+    {/* <button type="submit" className="bg-blue-900 hover:bg-blue-900 text-white font-semibold rounded-md py-2 px-4 w-full">Masuk</button> */}
+    <button type="button" onClick={handleLogin} className="px-60 bg-blue-900 hover:bg-blue-900 text-white font-semibold rounded-md py-2 px-4 w-full">Masuk</button>
+
+    
+
+    
+  </form>
+
+</div>
+
+</div>
+      </div>
   );
 }
 
-export default login;
+export default Login;

@@ -6,10 +6,10 @@ import Img4 from "../../assets/infoKampus/image4.svg";
 
 function divisi() {
   return (
-    <div className="pt-5">
+    <div className="container items-center mx-auto pt-5">
       <div className="">
         <div className=" h-[95px] flex-col justify-start items-center inline-flex">
-          <div className="w-[420px] text-center text-blue-900 text-5xl font-extrabold font-['Inter'] leading-10">
+          <div className="w-[420px] text-center text-blue-900 text-5xl font-extrabold leading-10">
             Info Kampus
           </div>
         </div>

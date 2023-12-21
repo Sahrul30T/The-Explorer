@@ -6,10 +6,10 @@ import Img4 from "../../assets/eventMendatang/img4.svg";
 
 function divisi() {
   return (
-    <div className="pt-11">
+    <div className="container items-center mx-auto pt-11">
       <div className="">
         <div className="w-[530px] h-[95px] flex-col justify-start items-center inline-flex">
-          <div className="w-[470px] text-center text-blue-900 text-5xl font-extrabold font-['Inter'] leading-10">
+          <div className="w-[470px] text-center text-blue-900 text-5xl font-extrabold leading-10">
             Event Mendatang
           </div>
         </div>

@@ -2,13 +2,13 @@ import React from "react";
 
 function visimisi() {
   return (
-    <div>
+    <div className="container items-center mx-auto">
       <div className="flex justify-center items-center">
         <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
           <div className="relative flex flex-col min-w-0 break-words bg-light-white w-full mb-8 shadow-lg rounded-lg">
-            <div className="px-4 py-40 ">
-              <h6 className="text-4xl font-semibold text-blue-900">VISI</h6>
-              <p className="mt-2 mb-4 text-blueGray-500">
+            <div className="px-4 py-44 ">
+              <h6 className="text-4xl font-bold text-blue-900">VISI</h6>
+              <p className="mt-2 mb-4 text-blueGray-900">
                 MENJADIKAN HIMPUNAN MAHASIISWA PROGRAM STUDI SISTEM INFORMASI
                 STT NF YANG PROFESSIONAL, INTEGRITAS, DAN BERKARAKTER CERDIK
                 (CERMAT, ENERGIK, RELIGIUS, DISIPLIN, INOVATIF, KOMPETEN)
@@ -20,10 +20,10 @@ function visimisi() {
         <div className="pt-12 w-full md:w-4/12 px-4 text-center">
           <div className="relative flex flex-col min-w-0 break-words bg-light-white w-full mb-8 shadow-lg rounded-lg">
             <div className="px-4 py-8 flex-auto">
-              <h6 className="text-4xl -mt-6 font-semibold text-blue-900">
+              <h6 className="text-4xl -mt-6 font-bold text-blue-900">
                 MISI
               </h6>
-              <p className="mt-2 mb-4 text-blueGray-500">
+              <p className="mt-4 mb-4 text-blueGray-500">
                 1. MEMPERKUAT KEHARMONISAN ANTAR PENGURUS DAN SELURUH MAHASISWA
                 PRODI SI UNTUK MEWUJUDKAN MAHASISWA YANG PRODUKTIF.
               </p>

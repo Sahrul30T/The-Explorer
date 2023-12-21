@@ -8,7 +8,7 @@ import Logout from "../../assets/logout icon.svg";
 
 function profile() {
   return (
-    <div>
+    <div className="container items-center mx-auto">
       {/* <div className="w-[1440px] h-[1024px] relative bg-white"> */}
       <div className="w-[1268px] h-[674px] left-[86px] top-[193px] absolute bg-white rounded-[15px] shadow border border-black border-opacity-30" />
       {/* <div className="w-[652px] h-[65px] left-[616px] top-[266px] absolute rounded-lg shadow border border-blue-900 border-opacity-20" /> */}
@@ -77,7 +77,7 @@ function profile() {
             <div className="mt-2.5">
               <img
                 className="w-[16.47px] h-5 left-[1231px] top-[504px] absolute"
-                src={Hidden}
+                // src={Hidden}
               />
               <input
                 type="password"
